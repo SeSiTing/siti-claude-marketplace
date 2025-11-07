@@ -1,0 +1,32 @@
+{
+  "name": "siti-claude-marketplace",
+  "owner": {
+    "name": "Your Team",
+    "email": "team@example.com"
+  },
+  "plugins": [
+    {
+      "name": "coder-plugin",
+      "source": "./plugins/coder-plugin",
+      "description": "Code development plugin with designer, developer, and frontend agents",
+      "version": "1.0.0",
+      "author": {
+        "name": "Your Team"
+      },
+      "keywords": ["code", "development", "designer", "developer", "frontend"],
+      "category": "development"
+    },
+    {
+      "name": "op-plugin",
+      "source": "./plugins/op-plugin",
+      "description": "Operational Platform plugin with agents and skills for workflow, connectors, events, and database operations",
+      "version": "1.0.0",
+      "author": {
+        "name": "Your Team"
+      },
+      "keywords": ["workflow", "connector", "event", "database"],
+      "category": "productivity"
+    }
+  ]
+}
+
