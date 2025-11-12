@@ -187,6 +187,10 @@ query_workflow_definition({
 
 ## 【plan.md 编写规范】
 
+**重要提示**：
+- plan.md 必须是纯 Markdown 格式，**不要添加任何 HTML/SGML 注释**（如 `<!-- 编码：UTF-8 -->`）
+- 文件应直接以 `#` 标题开头，使用 UTF-8 编码保存
+
 ### plan.md 必须包含的内容
 
 #### 1. 项目核心信息
