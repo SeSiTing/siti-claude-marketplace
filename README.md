@@ -148,4 +148,18 @@ OP 平台插件，包含：
 
 ## 版本管理
 
-版本号在各个插件的 `.claude-plugin/plugin.json` 中管理。发布时更新对应插件的版本号并创建 Git 标签。
+版本号在各个插件的 `.claude-plugin/plugin.json` 中管理。
+
+- **version**：语义化版本号（如 1.0.1），重大更新时升级
+- **updatedAt**：ISO 8601 格式的更新时间（如 2025-11-12T12:08:45+08:00），使用东八区时间，用于追踪小更新
+
+**注意**：
+- `updatedAt` 是自定义字段，仅在各插件的 `plugin.json` 中使用
+- `marketplace.json` 的 schema 不支持 `updatedAt` 字段，因此不会出现在市场配置中
+- 格式采用 ISO 8601 标准，包含时区信息（+08:00 表示东八区）
+
+**更新策略**：
+- 重大功能更新或 API 变更：升级版本号并更新 updatedAt
+- 文档优化、bug 修复等小更新：仅更新 updatedAt，不升级版本号
+
+发布时更新对应插件的版本号和 updatedAt，并创建 Git 标签。

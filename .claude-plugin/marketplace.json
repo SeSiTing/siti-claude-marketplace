@@ -9,7 +9,7 @@
       "name": "mcp-plugin",
       "source": "./plugins/mcp-plugin",
       "description": "Shared MCP server configuration plugin for OP platform integration",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Your Team"
       },
@@ -20,7 +20,7 @@
       "name": "coder-plugin",
       "source": "./plugins/coder-plugin",
       "description": "Code development plugin with designer, developer, and frontend agents",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Your Team"
       },
@@ -31,7 +31,7 @@
       "name": "op-plugin",
       "source": "./plugins/op-plugin",
       "description": "Operational Platform plugin with agents and skills for workflow, connectors, events, and database operations",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Your Team"
       },
