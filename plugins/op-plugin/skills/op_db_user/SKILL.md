@@ -5,6 +5,10 @@ description: 查询租户和组织信息（v3_user数据库）。使用 exec_sql
 
 # v3_user 数据库查询
 
+## 【通用规范】
+
+参考：[通用规范](./COMMON.md)
+
 ## 执行方式
 
 所有查询使用 `exec_sql` 工具执行，参数替换为实际值。

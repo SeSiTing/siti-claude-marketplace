@@ -5,6 +5,10 @@ description: 提供v3_metadata数据库的SQL查询模板，包括对象编码�
 
 # v3_metadata 数据库查询
 
+## 【通用规范】
+
+参考：[通用规范](./COMMON.md)
+
 ## 执行方式
 
 所有查询使用 `exec_sql` 工具执行，参数替换为实际值。

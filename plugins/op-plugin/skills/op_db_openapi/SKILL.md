@@ -5,6 +5,10 @@ description: 查询集成连接器和API配置（v3_openapi数据库）。使用
 
 # v3_openapi 数据库查询
 
+## 【通用规范】
+
+参考：[通用规范](./COMMON.md)
+
 ## 执行方式
 
 所有查询使用 `exec_sql` 工具执行，参数替换为实际值。
