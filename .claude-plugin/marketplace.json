@@ -17,8 +17,8 @@
       "category": "infrastructure"
     },
     {
-      "name": "coder-flow",
-      "source": "./plugins/coder-flow",
+      "name": "coder-flow-plugin",
+      "source": "./plugins/coder-flow-plugin",
       "description": "Flow development plugin with designer and developer agents",
       "version": "1.0.0",
       "author": {
@@ -28,8 +28,8 @@
       "category": "development"
     },
     {
-      "name": "coder-web",
-      "source": "./plugins/coder-web",
+      "name": "coder-web-plugin",
+      "source": "./plugins/coder-web-plugin",
       "description": "Web development plugin with frontend agents",
       "version": "1.0.0",
       "author": {
@@ -39,14 +39,14 @@
       "category": "development"
     },
     {
-      "name": "coder-explore",
-      "source": "./plugins/coder-explore",
-      "description": "Exploration plugin for general purpose with video analysis skill",
+      "name": "video-analyst-plugin",
+      "source": "./plugins/video-analyst-plugin",
+      "description": "Video analysis plugin with frame analysis capabilities",
       "version": "1.0.0",
       "author": {
         "name": "Your Team"
       },
-      "keywords": ["explore", "video", "analysis", "ffmpeg"],
+      "keywords": ["video", "analysis"],
       "category": "exploration"
     },
     {
