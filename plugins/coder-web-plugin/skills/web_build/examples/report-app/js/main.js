@@ -233,7 +233,8 @@ class MainApp {
             defectiveCount: workOrder.disqualifiedQuantity || 0,
             defectiveCountDisplay: workOrder.disqualifiedQuantityDisplay || '0',
             pendingCount: Math.max(0, (workOrder.totalQuantity || 0) - (workOrder.qualifiedQuantity || 0) - (workOrder.disqualifiedQuantity || 0)),
-            totalCount: workOrder.totalQuantity || 0
+            totalCount: workOrder.totalQuantity,
+            unitId: materialInfo?.unit?.id
         };
     }
 
@@ -269,8 +270,8 @@ class MainApp {
         
         // 更新状态
         this.state.currentView = 'material';
-        
-        console.log('切换到物料视图');
+
+        this.components.reportForm.setAuxName({ auxName: this.state.materialData.unit });
     }
 
     /**
@@ -340,12 +341,15 @@ class MainApp {
                 auxiliaryQuantity: formData.auxiliaryQuantity,
                 remark: formData.remark,
                 workHour: formData.workingHours,
-                workHourUnit: 2
+                workHourUnit: 2,
+                auxUnitId1: this.state.materialData.unitId,
+                reportStartTime: formData.reportStartTime,
+                reportEndTime: formData.reportEndTimeInput
             };
 
             console.log('提交报工数据:', reportData);
             
-            this.setLoading(true);
+            // this.setLoading(true);
             GlobalLoading.show('提交中...');
             
             // 提交报工
@@ -364,7 +368,7 @@ class MainApp {
             console.error('提交报工失败:', error);
             showToast(error.message || '提交失败', 'error');
         } finally {
-            this.setLoading(false);
+            // this.setLoading(false);
             GlobalLoading.hide();
         }
     }

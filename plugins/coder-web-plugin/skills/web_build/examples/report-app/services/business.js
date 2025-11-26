@@ -438,7 +438,9 @@ class ReportService {
                 progressReportMaterialItems: [{
                     reportAmount: formData.quantity,
                     reportUnitId: reportUnitId, // 必填：报工单位ID
-                    remark: formData.remark || undefined
+                    remark: formData.remark || undefined,
+                    // auxAmount1: formData.auxiliaryQuantity || undefined,
+                    // auxUnitId1: formData.auxUnitId1 || undefined
                 }]
             }],
 

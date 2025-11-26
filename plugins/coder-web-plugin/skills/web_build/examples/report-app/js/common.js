@@ -588,6 +588,9 @@ class ReportForm {
         this.auxiliaryQuantityInput = document.getElementById('auxiliary-quantity');
         this.remarkInput = document.getElementById('remark');
         this.workingHoursInput = document.getElementById('working-hours');
+        this.reportStartTimeInput = document.getElementById('report-start-time');
+        this.reportEndTimeInput = document.getElementById('report-end-time');
+        this.auxName = document.getElementById('auxName');
         
         this.init();
     }
@@ -681,7 +684,9 @@ class ReportForm {
             this.quantityInput,
             this.auxiliaryQuantityInput,
             this.remarkInput,
-            this.workingHoursInput
+            this.workingHoursInput,
+            this.reportStartTimeInput,
+            this.reportEndTimeInput,
         ];
     }
 
@@ -694,7 +699,9 @@ class ReportForm {
             quantity: parseFloat(this.quantityInput.value) || 0,
             auxiliaryQuantity: parseFloat(this.auxiliaryQuantityInput.value) || 0,
             remark: this.remarkInput.value.trim(),
-            workingHours: parseFloat(this.workingHoursInput.value) || 0
+            workingHours: parseFloat(this.workingHoursInput.value) || 0,
+            reportStartTime: this.reportStartTimeInput?.value?.trim(),
+            reportEndTimeInput: this.reportEndTimeInput?.value?.trim(),
         };
     }
 
@@ -705,6 +712,10 @@ class ReportForm {
     setData(data) {
         this.quantityInput.value = data.quantity || '';
         this.auxiliaryQuantityInput.value = data.auxiliaryQuantity || '';
+    }
+
+    setAuxName(data) {
+        this.auxName.innerText = data.auxName || '公斤'
     }
 
     /**
