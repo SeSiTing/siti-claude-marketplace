@@ -16,13 +16,15 @@ description: 通用 Web 项目构建工具，自动检测项目类型（Vue、Re
 
 ## 模板参考
 
-开发前端页面时，可参考以下模板获取设计灵感（纯 HTML/CSS/JS，供 frontend-html agent 使用）：
+本 skill 目录下的 `examples/` 包含纯 HTML/CSS/JS 参考模板，供 frontend-html agent 使用：
 
-| 模板名称 | 类型 | 特点 | 路径 |
-|---------|------|------|------|
-| mes-dashboard | 单文件 HTML | 科技感大屏看板、动画效果、深色主题 | `coder-templates/web/mes-dashboard/` |
-| report-h5 | 单文件 HTML | 移动端响应式、简洁表单、自定义工具类 | `coder-templates/web/report-h5/` |
-| report-app | 多文件结构 | Tailwind CSS、模块化 JS、完整 API 调用 | `coder-templates/web/report-app/` |
+| 模板 | 类型 | 特点 |
+|-----|------|------|
+| `examples/mes-dashboard/` | 单文件 | 科技感大屏看板、深色主题、动画效果 |
+| `examples/report-h5/` | 单文件 | 移动端响应式、简洁表单 |
+| `examples/report-app/` | 多文件 | Tailwind CSS、模块化 JS、完整 API 调用 |
+
+**使用方式**：可用 Read 工具读取上述模板文件，参考其风格和结构。
 
 ## 执行流程
 

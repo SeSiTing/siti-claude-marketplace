@@ -1,0 +1,638 @@
+{
+  "swagger": "2.0",
+  "info": {},
+  "host": "https://v3-ali.blacklake.cn/api/openapi/domain/web/v1/route",
+  "tags": [
+    "生产执行管理"
+  ],
+  "paths": {
+    "/mfg/open/v1/progress_report/_list_progress_report_materials": {
+      "post": {
+        "tags": [
+          "生产执行管理"
+        ],
+        "summary": "报工物料列表",
+        "operationId": "listProgressReportMaterialsUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "requestCO",
+            "description": "requestCO",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/open-报工物料列表参数CO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/请求响应普通对象«open-报工物料列表»"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "open-报工物料列表参数CO": {
+      "type": "object",
+      "required": [
+        "taskId"
+      ],
+      "properties": {
+        "taskId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "生产任务ID"
+        }
+      }
+    },
+    "请求响应普通对象«open-报工物料列表»": {
+      "type": "object",
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "example": 200,
+          "description": "状态码"
+        },
+        "data": {
+          "description": "数据",
+          "$ref": "#/definitions/open-报工物料列表"
+        },
+        "fieldPermission": {
+          "description": "字段权限管理",
+          "$ref": "#/definitions/FieldPermission"
+        },
+        "message": {
+          "type": "string",
+          "example": "成功",
+          "description": "返回信息"
+        },
+        "needCheck": {
+          "type": "integer",
+          "format": "int32",
+          "example": 0,
+          "description": "是否需要二次确认 0 强管控 不需要确认 1 弱管控 需要用户两次确认"
+        },
+        "subCode": {
+          "type": "string",
+          "example": "100001",
+          "description": "错误码"
+        }
+      }
+    },
+    "open-报工物料列表": {
+      "type": "object",
+      "properties": {
+        "outputMaterials": {
+          "type": "array",
+          "description": "可报工物料列表",
+          "items": {
+            "$ref": "#/definitions/open-报工物料信息"
+          }
+        }
+      }
+    },
+    "FieldPermission": {
+      "type": "object",
+      "properties": {
+        "encoding": {
+          "type": "string"
+        },
+        "noAccess": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "readonly": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "open-报工物料信息": {
+      "type": "object",
+      "properties": {
+        "autoWarehousingFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否自动入库"
+        },
+        "mainFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否为主产出。true为主产出或在制品，false为非主产出"
+        },
+        "materialInfo": {
+          "description": "物料基本信息",
+          "$ref": "#/definitions/common-物料信息VO"
+        },
+        "outputMaterialUnit": {
+          "description": "报工单位",
+          "$ref": "#/definitions/物料单位信息VO"
+        },
+        "progressReportKey": {
+          "description": "报工关系",
+          "$ref": "#/definitions/common-报工行为关系VO"
+        },
+        "qualityAuxAmount1": {
+          "description": "合格报工数-辅助数量",
+          "$ref": "#/definitions/BaseAmountDisplay2"
+        },
+        "qualityReportAmount": {
+          "description": "合格报工数",
+          "$ref": "#/definitions/BaseAmountDisplay2"
+        },
+        "reportType": {
+          "type": "array",
+          "description": "可报工方式",
+          "items": {
+            "$ref": "#/definitions/业务枚举类"
+          }
+        },
+        "toBeQualifiedAuxAmount1": {
+          "description": "待检报工数-辅助数量",
+          "$ref": "#/definitions/BaseAmountDisplay2"
+        },
+        "toBeQualifiedReportAmount": {
+          "description": "待检报工数",
+          "$ref": "#/definitions/BaseAmountDisplay2"
+        },
+        "unQualifiedConcessionAuxAmount1": {
+          "description": "让步合格报工数-辅助数量",
+          "$ref": "#/definitions/BaseAmountDisplay2"
+        },
+        "unQualifiedConcessionReportAmount": {
+          "description": "让步合格报工数",
+          "$ref": "#/definitions/BaseAmountDisplay2"
+        },
+        "unQualityAuxAmount1": {
+          "description": "不合格报工数-辅助数量",
+          "$ref": "#/definitions/BaseAmountDisplay2"
+        },
+        "unQualityReportAmount": {
+          "description": "不合格报工数",
+          "$ref": "#/definitions/BaseAmountDisplay2"
+        },
+        "virtualMaterialFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否为虚拟物料"
+        },
+        "warehousingFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否入库"
+        }
+      }
+    },
+    "common-物料信息VO": {
+      "type": "object",
+      "required": [
+        "baseInfo"
+      ],
+      "properties": {
+        "attribute": {
+          "type": "array",
+          "description": "物料属性信息",
+          "items": {
+            "$ref": "#/definitions/物料属性信息VO"
+          }
+        },
+        "baseInfo": {
+          "description": "物料基本信息",
+          "$ref": "#/definitions/物料基本信息VO"
+        },
+        "batchAttrs": {
+          "type": "array",
+          "description": "批次属性",
+          "items": {
+            "$ref": "#/definitions/物料批次属性"
+          }
+        },
+        "batchManagementEnable": {
+          "description": "是否启用批次管理",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "batchNoRuleId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "批次号规则"
+        },
+        "category": {
+          "description": "物料分类信息",
+          "$ref": "#/definitions/物料分类信息VO"
+        },
+        "defaultProductLocationIds": {
+          "type": "array",
+          "description": "默认产出位置",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "inventoryAttrs": {
+          "type": "array",
+          "description": "库存属性",
+          "items": {
+            "$ref": "#/definitions/物料库存属性"
+          }
+        },
+        "inventoryManageAttr": {
+          "description": "物料库存管理属性",
+          "$ref": "#/definitions/common-物料仓储管理属性信息VO"
+        },
+        "keyComponent": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否为关键件 0-否 1-是"
+        },
+        "masterUnit": {
+          "description": "物料主单位信息",
+          "$ref": "#/definitions/物料单位信息VO"
+        },
+        "materialFeedUnit": {
+          "description": "物料投料单位信息",
+          "$ref": "#/definitions/物料单位信息VO"
+        },
+        "outboundOrNot": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否出库 1是 0否"
+        },
+        "productionUnit": {
+          "description": "物料生产单位信息(废弃)",
+          "$ref": "#/definitions/物料单位信息VO"
+        },
+        "unitConversionInfo": {
+          "type": "array",
+          "description": "物料单位转化信息",
+          "items": {
+            "$ref": "#/definitions/单位转换信息VO"
+          }
+        },
+        "unitList": {
+          "type": "array",
+          "description": "物料所有可用单位信息",
+          "items": {
+            "$ref": "#/definitions/物料单位信息VO"
+          }
+        }
+      }
+    },
+    "物料单位信息VO": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "单位编号"
+        },
+        "enableFlag": {
+          "description": "使用状态，1启用0停用",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "enablePrecision": {
+          "description": "精度管理，1启用0停用",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "单位id"
+        },
+        "name": {
+          "type": "string",
+          "description": "单位名称"
+        },
+        "precisionFigure": {
+          "type": "integer",
+          "format": "int32",
+          "description": "精度"
+        },
+        "remark": {
+          "type": "string",
+          "description": "单位描述"
+        },
+        "roundingRole": {
+          "description": "舍入规则，0四舍五入1奇进偶舍2进位3舍位",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "unitType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "单位类型，0主单位，1转换单位，2辅助单位"
+        }
+      }
+    },
+    "common-报工行为关系VO": {
+      "type": "object",
+      "required": [
+        "materialId"
+      ],
+      "properties": {
+        "lineId": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1,
+          "description": "物料行ID"
+        },
+        "materialId": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1,
+          "description": "物料ID"
+        },
+        "reportProcessId": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1,
+          "description": "报工工序ID"
+        }
+      }
+    },
+    "BaseAmountDisplay2": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "description": "数量"
+        },
+        "amountDisplay": {
+          "type": "string",
+          "description": "展示数量"
+        },
+        "unitCode": {
+          "type": "string",
+          "description": "单位Code"
+        },
+        "unitEnablePrecision": {
+          "type": "boolean",
+          "example": false,
+          "description": "精度管理（false-停用；true-启用）"
+        },
+        "unitId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "单位Id"
+        },
+        "unitName": {
+          "type": "string",
+          "description": "单位名称"
+        },
+        "unitPrecisionFigure": {
+          "type": "integer",
+          "format": "int32",
+          "description": "精度(默认精度——10)"
+        },
+        "unitRoundingRole": {
+          "type": "integer",
+          "format": "int32",
+          "description": "舍入规则（0-四舍五入；1-奇进偶舍；2-进位；3-舍位）"
+        }
+      }
+    },
+    "业务枚举类": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "枚举 code"
+        },
+        "message": {
+          "type": "string",
+          "example": "业务枚举信息",
+          "description": "枚举 message"
+        }
+      }
+    },
+    "物料属性信息VO": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "属性内容"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "属性id"
+        },
+        "name": {
+          "type": "string",
+          "description": "属性名字"
+        }
+      }
+    },
+    "物料基本信息VO": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "code"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "id"
+        },
+        "name": {
+          "type": "string",
+          "description": "名称"
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注"
+        },
+        "specification": {
+          "type": "string",
+          "description": "物料规格"
+        }
+      }
+    },
+    "物料批次属性": {
+      "type": "object",
+      "required": [
+        "displayEnable",
+        "id",
+        "materialId",
+        "name",
+        "nullEnable",
+        "serialNo",
+        "type"
+      ],
+      "properties": {
+        "displayEnable": {
+          "description": "是否启用 0不启用 1启用",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "id"
+        },
+        "materialId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "物料id"
+        },
+        "name": {
+          "description": "属性名称 0供应商批次1供应商2客户3生产日期4有效期至",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "nullEnable": {
+          "description": "是否可空 0不可空 1可空",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "serialNo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "排序字段 默认0 起始0"
+        },
+        "type": {
+          "description": "属性类型 0单行文本 1关联关系 2日期时间",
+          "$ref": "#/definitions/业务枚举类"
+        }
+      }
+    },
+    "物料分类信息VO": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "code"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "id"
+        },
+        "name": {
+          "type": "string",
+          "description": "名称"
+        }
+      }
+    },
+    "物料库存属性": {
+      "type": "object",
+      "required": [
+        "displayEnable",
+        "id",
+        "materialId",
+        "name",
+        "nullEnable",
+        "serialNo",
+        "type"
+      ],
+      "properties": {
+        "displayEnable": {
+          "description": "是否启用 0不启用 1启用",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "id"
+        },
+        "materialId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "物料id"
+        },
+        "name": {
+          "description": "属性名称 0供应商批次1供应商2客户3生产日期4有效期至",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "nullEnable": {
+          "description": "是否可空 0不可空 1可空",
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "serialNo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "排序字段 默认0 起始0"
+        },
+        "type": {
+          "description": "属性类型 0单行文本 1关联关系 2日期时间",
+          "$ref": "#/definitions/业务枚举类"
+        }
+      }
+    },
+    "common-物料仓储管理属性信息VO": {
+      "type": "object",
+      "properties": {
+        "inventoryQrCodeRuleId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "物料存储设置-库存明细标识码编号规则ID"
+        },
+        "locationId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "仓位信息"
+        },
+        "validity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "有效期"
+        },
+        "validityUnit": {
+          "description": "有效期单位",
+          "$ref": "#/definitions/业务枚举类"
+        }
+      }
+    },
+    "单位转换信息VO": {
+      "type": "object",
+      "properties": {
+        "fromUnitCount": {
+          "type": "number",
+          "description": "基本单位转换系数"
+        },
+        "fromUnitId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "基本单位id"
+        },
+        "toUnitCount": {
+          "type": "number",
+          "description": "转换单位转换系数"
+        },
+        "toUnitId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "转换单位id"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1667 @@
+{
+  "swagger": "2.0",
+  "info": {},
+  "host": "https://v3-ali.blacklake.cn/api/openapi/domain/web/v1/route",
+  "tags": [
+    "生产执行管理"
+  ],
+  "paths": {
+    "/mfg/open/v1/produce_task/_list": {
+      "post": {
+        "vendorExtensions": {},
+        "tags": [
+          "生产执行管理"
+        ],
+        "summary": "生产任务列表",
+        "description": "该接口有一定的延时",
+        "operationId": "listUsingPOST_21",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "vendorExtensions": {},
+            "in": "body",
+            "name": "produceTaskListOpenCO",
+            "description": "produceTaskListOpenCO",
+            "required": true,
+            "schema": {
+              "genericRef": {
+                "format": "INTERNAL",
+                "type": "DEFINITION",
+                "ref": "#/definitions/open-生产任务列表CO",
+                "simpleRef": "open-生产任务列表CO"
+              },
+              "$ref": "#/definitions/open-生产任务列表CO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "vendorExtensions": {},
+              "genericRef": {
+                "format": "INTERNAL",
+                "type": "DEFINITION",
+                "ref": "#/definitions/请求响应数组对象«open-生产任务列表VO»",
+                "simpleRef": "请求响应数组对象«open-生产任务列表VO»"
+              },
+              "$ref": "#/definitions/请求响应数组对象«open-生产任务列表VO»"
+            },
+            "vendorExtensions": {}
+          },
+          "201": {
+            "description": "Created",
+            "vendorExtensions": {}
+          },
+          "401": {
+            "description": "Unauthorized",
+            "vendorExtensions": {}
+          },
+          "403": {
+            "description": "Forbidden",
+            "vendorExtensions": {}
+          },
+          "404": {
+            "description": "Not Found",
+            "vendorExtensions": {}
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "open-生产任务列表CO": {
+      "type": "object",
+      "properties": {
+        "actualEndTimeFrom": {
+          "type": "integer",
+          "format": "int64",
+          "description": "实际完工时间-起(闭区间)",
+          "vendorExtensions": {}
+        },
+        "actualEndTimeTo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "实际完工时间-止(开区间)",
+          "vendorExtensions": {}
+        },
+        "actualStartTimeFrom": {
+          "type": "integer",
+          "format": "int64",
+          "description": "实际开工时间-起(闭区间)",
+          "vendorExtensions": {}
+        },
+        "actualStartTimeTo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "实际开工时间-止(开区间)",
+          "vendorExtensions": {}
+        },
+        "createdTimeFrom": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建时间-起(闭区间)",
+          "vendorExtensions": {}
+        },
+        "createdTimeTo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建时间-止(开区间)",
+          "vendorExtensions": {}
+        },
+        "departmentIdList": {
+          "type": "array",
+          "description": "部门ID列表（已废弃，不支持查询）",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "equipmentIdList": {
+          "type": "array",
+          "description": "设备ID列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "executorIdList": {
+          "type": "array",
+          "description": "可执行人ID列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "materialIdList": {
+          "type": "array",
+          "description": "物料Code列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "overdueFlagList": {
+          "type": "array",
+          "description": "逾期标志",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int32",
+            "vendorExtensions": {}
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "请求页",
+          "vendorExtensions": {}
+        },
+        "planEndTimeFrom": {
+          "type": "integer",
+          "format": "int64",
+          "description": "计划结束时间-起(闭区间)",
+          "vendorExtensions": {}
+        },
+        "planEndTimeTo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "计划结束时间-止(开区间)",
+          "vendorExtensions": {}
+        },
+        "planStartTimeFrom": {
+          "type": "integer",
+          "format": "int64",
+          "description": "计划开始时间-起(闭区间)",
+          "vendorExtensions": {}
+        },
+        "planStartTimeTo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "计划开始时间-止(开区间)",
+          "vendorExtensions": {}
+        },
+        "processDefIdList": {
+          "type": "array",
+          "description": "工序定义ID列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "processIdList": {
+          "type": "array",
+          "description": "工序ID列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "quickSearch": {
+          "type": "string",
+          "description": "快速搜索",
+          "vendorExtensions": {}
+        },
+        "salesOrderIdList": {
+          "type": "array",
+          "description": "销售订单ID列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "selectFlag": {
+          "type": "integer",
+          "format": "int32",
+          "description": "筛选标识 1 全选 0 不全选 默认为 0",
+          "vendorExtensions": {}
+        },
+        "size": {
+          "type": "integer",
+          "format": "int32",
+          "example": 20,
+          "description": "每页大小",
+          "vendorExtensions": {}
+        },
+        "sopTaskIdList": {
+          "type": "array",
+          "description": "sop任务ID列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "sorter": {
+          "type": "array",
+          "description": "排序 列表顺序表示排序顺序",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/OrderBy",
+              "simpleRef": "OrderBy"
+            },
+            "$ref": "#/definitions/OrderBy"
+          }
+        },
+        "taskIdList": {
+          "type": "array",
+          "example": "[1,2,3]",
+          "description": "生产任务id列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "taskStatusList": {
+          "type": "array",
+          "description": "任务状态",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int32",
+            "vendorExtensions": {}
+          }
+        },
+        "updateEndTo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "更新时间-止(开区间)",
+          "vendorExtensions": {}
+        },
+        "updateTimeFrom": {
+          "type": "integer",
+          "format": "int64",
+          "description": "更新时间-起(闭区间)",
+          "vendorExtensions": {}
+        },
+        "workCenterIdList": {
+          "type": "array",
+          "description": "工作中心ID列表",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "workOrderIdList": {
+          "type": "array",
+          "description": "工单Id",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "请求响应数组对象«open-生产任务列表VO»": {
+      "type": "object",
+      "required": [
+        "code",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "example": 200,
+          "description": "状态码",
+          "vendorExtensions": {}
+        },
+        "data": {
+          "description": "数据",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/分页响应对象«open-生产任务列表VO»",
+            "simpleRef": "分页响应对象«open-生产任务列表VO»"
+          },
+          "$ref": "#/definitions/分页响应对象«open-生产任务列表VO»"
+        },
+        "fieldPermission": {
+          "description": "字段权限管理",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/FieldPermission",
+            "simpleRef": "FieldPermission"
+          },
+          "$ref": "#/definitions/FieldPermission"
+        },
+        "message": {
+          "type": "string",
+          "example": "成功",
+          "description": "返回信息",
+          "vendorExtensions": {}
+        },
+        "needCheck": {
+          "type": "integer",
+          "format": "int32",
+          "example": 0,
+          "description": "是否需要二次确认 0 强管控 不需要确认 1 弱管控 需要用户两次确认",
+          "vendorExtensions": {}
+        },
+        "subCode": {
+          "type": "string",
+          "example": "100001",
+          "description": "错误码",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "OrderBy": {
+      "type": "object",
+      "properties": {
+        "field": {
+          "type": "string",
+          "example": "name",
+          "description": "排序字段",
+          "vendorExtensions": {}
+        },
+        "order": {
+          "type": "string",
+          "example": "asc",
+          "description": "排序规律 默认 asc，asc 升序 desc 降序",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "分页响应对象«open-生产任务列表VO»": {
+      "type": "object",
+      "required": [
+        "list",
+        "page",
+        "total"
+      ],
+      "properties": {
+        "list": {
+          "type": "array",
+          "description": "列表",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/open-生产任务列表VO",
+              "simpleRef": "open-生产任务列表VO"
+            },
+            "$ref": "#/definitions/open-生产任务列表VO"
+          }
+        },
+        "page": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "当前页",
+          "vendorExtensions": {}
+        },
+        "total": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1,
+          "description": "总条数",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "FieldPermission": {
+      "type": "object",
+      "properties": {
+        "encoding": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "noAccess": {
+          "type": "array",
+          "vendorExtensions": {},
+          "items": {
+            "type": "string",
+            "vendorExtensions": {}
+          }
+        },
+        "readonly": {
+          "type": "array",
+          "vendorExtensions": {},
+          "items": {
+            "type": "string",
+            "vendorExtensions": {}
+          }
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "open-生产任务列表VO": {
+      "type": "object",
+      "required": [
+        "planEndTime",
+        "planStartTime",
+        "processCode",
+        "processId",
+        "processName",
+        "reportTemplateIds",
+        "specifiedMaterial",
+        "taskCode",
+        "taskId",
+        "taskStatus",
+        "workOrderCode",
+        "workOrderId"
+      ],
+      "properties": {
+        "actualEndOverdueFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "实际完工是否逾期标志",
+          "vendorExtensions": {}
+        },
+        "actualEndTime": {
+          "type": "integer",
+          "format": "int64",
+          "description": "实际完工时间",
+          "vendorExtensions": {}
+        },
+        "actualStartOverdueFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "实际开工是否逾期标志",
+          "vendorExtensions": {}
+        },
+        "actualStartTime": {
+          "type": "integer",
+          "format": "int64",
+          "description": "实际开工时间",
+          "vendorExtensions": {}
+        },
+        "batchNo": {
+          "type": "string",
+          "description": "批号",
+          "vendorExtensions": {}
+        },
+        "createdAt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "创建时间",
+          "vendorExtensions": {}
+        },
+        "customFields": {
+          "type": "array",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/CustomFieldInstance",
+              "simpleRef": "CustomFieldInstance"
+            },
+            "$ref": "#/definitions/CustomFieldInstance"
+          }
+        },
+        "executorList": {
+          "type": "array",
+          "description": "执行人",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/common-用户对象VO",
+              "simpleRef": "common-用户对象VO"
+            },
+            "$ref": "#/definitions/common-用户对象VO"
+          }
+        },
+        "planEndTime": {
+          "type": "integer",
+          "format": "int64",
+          "description": "计划结束时间",
+          "vendorExtensions": {}
+        },
+        "planStartTime": {
+          "type": "integer",
+          "format": "int64",
+          "description": "计划开始时间",
+          "vendorExtensions": {}
+        },
+        "processCode": {
+          "type": "string",
+          "description": "工序编号",
+          "vendorExtensions": {}
+        },
+        "processId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "工序ID",
+          "vendorExtensions": {}
+        },
+        "processName": {
+          "type": "string",
+          "description": "工序名称",
+          "vendorExtensions": {}
+        },
+        "progressReportOpenVO": {
+          "description": "任务进度（主物料）",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/任务主产出相关信息",
+            "simpleRef": "任务主产出相关信息"
+          },
+          "$ref": "#/definitions/任务主产出相关信息"
+        },
+        "reportTemplateIds": {
+          "type": "array",
+          "description": "报告模版ids",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "sonObjects": {
+          "type": "array",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/从对象响应Model",
+              "simpleRef": "从对象响应Model"
+            },
+            "$ref": "#/definitions/从对象响应Model"
+          }
+        },
+        "sopTaskId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "Sop任务Id",
+          "vendorExtensions": {}
+        },
+        "specifiedMaterial": {
+          "type": "boolean",
+          "example": false,
+          "description": "工单指定物料",
+          "vendorExtensions": {}
+        },
+        "taskCode": {
+          "type": "string",
+          "description": "任务编号",
+          "vendorExtensions": {}
+        },
+        "taskId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "任务Id",
+          "vendorExtensions": {}
+        },
+        "taskStatus": {
+          "description": "任务状态 1 待执行、2 执行中、3 暂停中、4 已完工 5 已取消",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "updateAt": {
+          "type": "integer",
+          "format": "int64",
+          "description": "更新时间",
+          "vendorExtensions": {}
+        },
+        "workCenterVO": {
+          "description": "工作中心",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/工作中心VO",
+            "simpleRef": "工作中心VO"
+          },
+          "$ref": "#/definitions/工作中心VO"
+        },
+        "workOrderCode": {
+          "type": "string",
+          "description": "工单编号",
+          "vendorExtensions": {}
+        },
+        "workOrderId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "工单ID",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "CustomFieldInstance": {
+      "type": "object",
+      "properties": {
+        "choiceValues": {
+          "type": "array",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/ChoiceValue",
+              "simpleRef": "ChoiceValue"
+            },
+            "$ref": "#/definitions/ChoiceValue"
+          }
+        },
+        "datetimeFormat": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "decimalNumber": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "defaultValue": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "editable": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "esField": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "fieldCode": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "fieldEsValue": {
+          "type": "object",
+          "vendorExtensions": {},
+          "properties": {}
+        },
+        "fieldExportValue": {
+          "type": "object",
+          "vendorExtensions": {},
+          "properties": {}
+        },
+        "fieldId": {
+          "type": "integer",
+          "format": "int64",
+          "vendorExtensions": {}
+        },
+        "fieldName": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "fieldRemind": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "fieldType": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "fieldValue": {
+          "type": "object",
+          "vendorExtensions": {},
+          "properties": {}
+        },
+        "isRefer": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "isRequired": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "isUsed": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "maxLength": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "maxValue": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "objectCode": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "reference": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "targetType": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "visible": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "common-用户对象VO": {
+      "type": "object",
+      "required": [
+        "code",
+        "id",
+        "name",
+        "username"
+      ],
+      "properties": {
+        "avatarUrl": {
+          "type": "string",
+          "description": "头像url",
+          "vendorExtensions": {}
+        },
+        "code": {
+          "type": "string",
+          "description": "用户code",
+          "vendorExtensions": {}
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "用户业务ID",
+          "vendorExtensions": {}
+        },
+        "name": {
+          "type": "string",
+          "description": "用户名",
+          "vendorExtensions": {}
+        },
+        "username": {
+          "type": "string",
+          "description": "账号",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "任务主产出相关信息": {
+      "type": "object",
+      "properties": {
+        "alreadyReportedAmount": {
+          "description": "已报工数",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/BaseAmount",
+            "simpleRef": "BaseAmount"
+          },
+          "$ref": "#/definitions/BaseAmount"
+        },
+        "autoWarehousingFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否自动入库",
+          "vendorExtensions": {}
+        },
+        "batchManagementEnable": {
+          "description": "物料是否开启批次管理 0不启用，1启用",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "batchNoFromWorkOrder": {
+          "type": "string",
+          "description": "工单定义的物料批次号",
+          "vendorExtensions": {}
+        },
+        "batchNoIdFromWorkOrder": {
+          "type": "integer",
+          "format": "int64",
+          "description": "工单定义的物料批次号ID",
+          "vendorExtensions": {}
+        },
+        "fixedBatchNoFromWorkOrder": {
+          "type": "string",
+          "description": "工单主产出的固定批次号",
+          "vendorExtensions": {}
+        },
+        "lineId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "物料行id",
+          "vendorExtensions": {}
+        },
+        "materialInfo": {
+          "description": "物料基本信息",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/common-物料信息VO",
+            "simpleRef": "common-物料信息VO"
+          },
+          "$ref": "#/definitions/common-物料信息VO"
+        },
+        "numberRuleFromMaterial": {
+          "type": "integer",
+          "format": "int64",
+          "description": "物料定义上的批号规则id",
+          "vendorExtensions": {}
+        },
+        "numberRuleFromWorkOrder": {
+          "type": "integer",
+          "format": "int64",
+          "description": "工单定义的批号规则",
+          "vendorExtensions": {}
+        },
+        "outputMaterialUnit": {
+          "description": "报工单位",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/物料单位信息VO",
+            "simpleRef": "物料单位信息VO"
+          },
+          "$ref": "#/definitions/物料单位信息VO"
+        },
+        "planWorkReportQuantityControl": {
+          "description": "工序计划报工数量管控",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "plannedAmount": {
+          "description": "计划数",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/BaseAmount",
+            "simpleRef": "BaseAmount"
+          },
+          "$ref": "#/definitions/BaseAmount"
+        },
+        "reportFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否报工",
+          "vendorExtensions": {}
+        },
+        "reportingMethod": {
+          "type": "array",
+          "description": "报工方式",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/业务枚举类",
+              "simpleRef": "业务枚举类"
+            },
+            "$ref": "#/definitions/业务枚举类"
+          }
+        },
+        "singleReportAmount": {
+          "type": "number",
+          "description": "单次报工数量",
+          "vendorExtensions": {}
+        },
+        "virtualMaterialFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否为虚拟物料",
+          "vendorExtensions": {}
+        },
+        "warehousingFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否入库",
+          "vendorExtensions": {}
+        },
+        "wipFlag": {
+          "type": "boolean",
+          "example": false,
+          "description": "是否为在制品",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "从对象响应Model": {
+      "type": "object",
+      "properties": {
+        "customFields": {
+          "type": "array",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/CustomFieldInstance",
+              "simpleRef": "CustomFieldInstance"
+            },
+            "$ref": "#/definitions/CustomFieldInstance"
+          }
+        },
+        "objectCode": {
+          "type": "string",
+          "description": "对象code",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "业务枚举类": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "枚举 code",
+          "vendorExtensions": {}
+        },
+        "message": {
+          "type": "string",
+          "example": "业务枚举信息",
+          "description": "枚举 message",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "工作中心VO": {
+      "type": "object",
+      "required": [
+        "code",
+        "id",
+        "name"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "工作中心编号",
+          "vendorExtensions": {}
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "工作中心ID",
+          "vendorExtensions": {}
+        },
+        "name": {
+          "type": "string",
+          "description": "工作中心名称",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "ChoiceValue": {
+      "type": "object",
+      "properties": {
+        "choiceCode": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "choiceValue": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "vendorExtensions": {}
+        },
+        "isDefault": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "sequence": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "BaseAmount": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "vendorExtensions": {}
+        },
+        "unit": {
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/Unit",
+            "simpleRef": "Unit"
+          },
+          "$ref": "#/definitions/Unit"
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "common-物料信息VO": {
+      "type": "object",
+      "required": [
+        "baseInfo"
+      ],
+      "properties": {
+        "attribute": {
+          "type": "array",
+          "description": "物料属性信息",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/物料属性信息VO",
+              "simpleRef": "物料属性信息VO"
+            },
+            "$ref": "#/definitions/物料属性信息VO"
+          }
+        },
+        "baseInfo": {
+          "description": "物料基本信息",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/物料基本信息VO",
+            "simpleRef": "物料基本信息VO"
+          },
+          "$ref": "#/definitions/物料基本信息VO"
+        },
+        "batchManagementEnable": {
+          "description": "是否启用批次管理",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "batchNoRuleId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "批次号规则",
+          "vendorExtensions": {}
+        },
+        "category": {
+          "description": "物料分类信息",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/物料分类信息VO",
+            "simpleRef": "物料分类信息VO"
+          },
+          "$ref": "#/definitions/物料分类信息VO"
+        },
+        "defaultProductLocationIds": {
+          "type": "array",
+          "description": "默认产出位置",
+          "vendorExtensions": {},
+          "items": {
+            "type": "integer",
+            "format": "int64",
+            "vendorExtensions": {}
+          }
+        },
+        "inventoryAttrs": {
+          "type": "array",
+          "description": "库存属性",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/MaterialInventoryAttrVO",
+              "simpleRef": "MaterialInventoryAttrVO"
+            },
+            "$ref": "#/definitions/MaterialInventoryAttrVO"
+          }
+        },
+        "inventoryManageAttr": {
+          "description": "物料库存管理属性",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/common-物料仓储管理属性信息VO",
+            "simpleRef": "common-物料仓储管理属性信息VO"
+          },
+          "$ref": "#/definitions/common-物料仓储管理属性信息VO"
+        },
+        "keyComponent": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否为关键件 0-否 1-是",
+          "vendorExtensions": {}
+        },
+        "masterUnit": {
+          "description": "物料主单位信息",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/物料单位信息VO",
+            "simpleRef": "物料单位信息VO"
+          },
+          "$ref": "#/definitions/物料单位信息VO"
+        },
+        "materialFeedUnit": {
+          "description": "物料投料单位信息",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/物料单位信息VO",
+            "simpleRef": "物料单位信息VO"
+          },
+          "$ref": "#/definitions/物料单位信息VO"
+        },
+        "outboundOrNot": {
+          "type": "integer",
+          "format": "int32",
+          "description": "是否出库 1是 0否",
+          "vendorExtensions": {}
+        },
+        "productionUnit": {
+          "description": "物料生产单位信息(废弃)",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/物料单位信息VO",
+            "simpleRef": "物料单位信息VO"
+          },
+          "$ref": "#/definitions/物料单位信息VO"
+        },
+        "unitConversionInfo": {
+          "type": "array",
+          "description": "物料单位转化信息",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/单位转换信息VO",
+              "simpleRef": "单位转换信息VO"
+            },
+            "$ref": "#/definitions/单位转换信息VO"
+          }
+        },
+        "unitList": {
+          "type": "array",
+          "description": "物料所有可用单位信息",
+          "vendorExtensions": {},
+          "items": {
+            "vendorExtensions": {},
+            "genericRef": {
+              "format": "INTERNAL",
+              "type": "DEFINITION",
+              "ref": "#/definitions/物料单位信息VO",
+              "simpleRef": "物料单位信息VO"
+            },
+            "$ref": "#/definitions/物料单位信息VO"
+          }
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "物料单位信息VO": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "单位编号",
+          "vendorExtensions": {}
+        },
+        "enableFlag": {
+          "description": "使用状态，1启用0停用",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "enablePrecision": {
+          "description": "精度管理，1启用0停用",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "单位id",
+          "vendorExtensions": {}
+        },
+        "name": {
+          "type": "string",
+          "description": "单位名称",
+          "vendorExtensions": {}
+        },
+        "precisionFigure": {
+          "type": "integer",
+          "format": "int32",
+          "description": "精度",
+          "vendorExtensions": {}
+        },
+        "remark": {
+          "type": "string",
+          "description": "单位描述",
+          "vendorExtensions": {}
+        },
+        "roundingRole": {
+          "description": "舍入规则，0四舍五入1奇进偶舍2进位3舍位",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "unitType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "单位类型，0主单位，1转换单位，2辅助单位",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "Unit": {
+      "type": "object",
+      "properties": {
+        "bigDecimalRoundingRole": {
+          "type": "string",
+          "vendorExtensions": {},
+          "_enum": [
+            "UP",
+            "DOWN",
+            "CEILING",
+            "FLOOR",
+            "HALF_UP",
+            "HALF_DOWN",
+            "HALF_EVEN",
+            "UNNECESSARY"
+          ],
+          "enum": [
+            "UP",
+            "DOWN",
+            "CEILING",
+            "FLOOR",
+            "HALF_UP",
+            "HALF_DOWN",
+            "HALF_EVEN",
+            "UNNECESSARY"
+          ]
+        },
+        "calculatePrecisionFigure": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "code": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "enablePrecision": {
+          "type": "boolean",
+          "vendorExtensions": {}
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "vendorExtensions": {}
+        },
+        "name": {
+          "type": "string",
+          "vendorExtensions": {}
+        },
+        "orgId": {
+          "type": "integer",
+          "format": "int64",
+          "vendorExtensions": {}
+        },
+        "precisionFigure": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        },
+        "roundingRole": {
+          "type": "integer",
+          "format": "int32",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "物料属性信息VO": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "属性内容",
+          "vendorExtensions": {}
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "属性id",
+          "vendorExtensions": {}
+        },
+        "name": {
+          "type": "string",
+          "description": "属性名字",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "物料基本信息VO": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "code",
+          "vendorExtensions": {}
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "id",
+          "vendorExtensions": {}
+        },
+        "name": {
+          "type": "string",
+          "description": "名称",
+          "vendorExtensions": {}
+        },
+        "remark": {
+          "type": "string",
+          "description": "备注",
+          "vendorExtensions": {}
+        },
+        "specification": {
+          "type": "string",
+          "description": "物料规格",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "物料分类信息VO": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "code",
+          "vendorExtensions": {}
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "id",
+          "vendorExtensions": {}
+        },
+        "name": {
+          "type": "string",
+          "description": "名称",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "MaterialInventoryAttrVO": {
+      "type": "object",
+      "required": [
+        "displayEnable",
+        "id",
+        "materialId",
+        "name",
+        "nullEnable",
+        "serialNo",
+        "type"
+      ],
+      "properties": {
+        "displayEnable": {
+          "description": "是否启用 0不启用 1启用",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "description": "id",
+          "vendorExtensions": {}
+        },
+        "materialId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "物料id",
+          "vendorExtensions": {}
+        },
+        "name": {
+          "description": "属性名称 0供应商批次1供应商2客户3生产日期4有效期至",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "nullEnable": {
+          "description": "是否可空 0不可空 1可空",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        },
+        "serialNo": {
+          "type": "integer",
+          "format": "int64",
+          "description": "排序字段 默认0 起始0",
+          "vendorExtensions": {}
+        },
+        "type": {
+          "description": "属性类型 0单行文本 1关联关系 2日期时间",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "common-物料仓储管理属性信息VO": {
+      "type": "object",
+      "properties": {
+        "inventoryQrCodeRuleId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "物料存储设置-库存明细标识码编号规则ID",
+          "vendorExtensions": {}
+        },
+        "locationId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "仓位信息",
+          "vendorExtensions": {}
+        },
+        "validity": {
+          "type": "integer",
+          "format": "int32",
+          "description": "有效期",
+          "vendorExtensions": {}
+        },
+        "validityUnit": {
+          "description": "有效期单位",
+          "vendorExtensions": {},
+          "genericRef": {
+            "format": "INTERNAL",
+            "type": "DEFINITION",
+            "ref": "#/definitions/业务枚举类",
+            "simpleRef": "业务枚举类"
+          },
+          "$ref": "#/definitions/业务枚举类"
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    },
+    "单位转换信息VO": {
+      "type": "object",
+      "properties": {
+        "fromUnitCount": {
+          "type": "number",
+          "description": "基本单位转换系数",
+          "vendorExtensions": {}
+        },
+        "fromUnitId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "基本单位id",
+          "vendorExtensions": {}
+        },
+        "toUnitCount": {
+          "type": "number",
+          "description": "转换单位转换系数",
+          "vendorExtensions": {}
+        },
+        "toUnitId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "转换单位id",
+          "vendorExtensions": {}
+        }
+      },
+      "vendorExtensions": {},
+      "isSimple": false
+    }
+  }
+}
