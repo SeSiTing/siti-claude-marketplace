@@ -14,6 +14,16 @@ description: 通用 Web 项目构建工具，自动检测项目类型（Vue、Re
 4. 执行生产构建（npm run build）
 5. 生成可访问的预览链接
 
+## 模板参考
+
+开发前端页面时，可参考以下模板获取设计灵感（纯 HTML/CSS/JS，供 frontend-html agent 使用）：
+
+| 模板名称 | 类型 | 特点 | 路径 |
+|---------|------|------|------|
+| mes-dashboard | 单文件 HTML | 科技感大屏看板、动画效果、深色主题 | `coder-templates/web/mes-dashboard/` |
+| report-h5 | 单文件 HTML | 移动端响应式、简洁表单、自定义工具类 | `coder-templates/web/report-h5/` |
+| report-app | 多文件结构 | Tailwind CSS、模块化 JS、完整 API 调用 | `coder-templates/web/report-app/` |
+
 ## 执行流程
 
 ### 步骤1：检查项目配置
