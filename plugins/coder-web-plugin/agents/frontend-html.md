@@ -26,16 +26,15 @@ color: purple
 
 ### Step 1：理解需求（不要预读代码）
 - 仔细理解用户需求描述和上传的图片
-- **判断是否涉及接口修改**
 - 分析需要修改的文件范围
 
 ### Step 2：按需最小化读取
-- **如涉及接口修改** → 必须先读取 `api_doc/` 下的相关接口文档
 - **使用 grep 批量定位** → 先用 grep 查找关键代码位置
 - **仅读取需要修改的文件** → 不要全量扫描
+- **接口信息来源** → 可参考代码注释（`services/business.js` 的 JSDoc）或 `api_doc/` 文档
 - 示例场景：
   - 修改表单字段 → 只读 `index.html` 和 `js/main.js` 的相关部分
-  - 修改接口调用 → 只读 `services/business.js` 的特定方法和相关接口文档
+  - 修改接口调用 → 读取 `services/business.js` 的特定方法，参考注释或 api_doc
   - 修改样式 → 只读 `index.html` 和 `css/` 的相关部分
 
 ### Step 3：批量快速执行
